@@ -1,0 +1,7 @@
+build/
+lib/
+*.exe
+*.nds
+*.elf
+*.fx2
+*.a
