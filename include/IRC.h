@@ -1,6 +1,7 @@
 /*
 	cpIRC - C++ class based IRC protocol wrapper
 	Copyright (C) 2003 Iain Sheppard
+                      2012 gruetzkopf 
 
 	This library is free software; you can redistribute it and/or
 	modify it under the terms of the GNU Lesser General Public
@@ -21,17 +22,22 @@
 
 	email:	iainsheppard@yahoo.co.uk
 	IRC:	#magpie @ irc.quakenet.org
+
+	This version of cpIRC has undergone modifications. It may have bugs not in the normal release of the library.
+	Please ask the author of these modifications first if you believe that this is the case.
+	
+	contact gruetzkopf on #feos on irc.blitzed.org for help.
 */
 
 #include <stdio.h>
 #include <stdarg.h>
 
 #define __CPIRC_VERSION__	0.1
-#define __IRC_DEBUG__ 1
 
 #define IRC_USER_VOICE	1
 #define IRC_USER_HALFOP	2
 #define IRC_USER_OP		4
+
 
 struct irc_reply_data
 {
@@ -88,6 +94,7 @@ private:
 	void split_to_replies(char* data);
 	void insert_irc_command_hook(irc_command_hook* hook, char* cmd_name, int (*function_ptr)(char*, irc_reply_data*, void*));
 	void delete_irc_command_hook(irc_command_hook* cmd_hook);
+	char sockbuffer[256];
 	int irc_socket;
 	bool connected;
 	bool sentnick;
