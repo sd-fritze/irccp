@@ -270,8 +270,6 @@ FEOS_EXPORT void IRC::parse_irc_reply(char* data)
 
 	hostd_tmp.target=0;
 
-	printf("%s\n", data);
-
 	if (data[0]==':')
 	{
 		hostd=&data[1];
